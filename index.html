@@ -1,0 +1,1092 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLTRON MOTORS | Kelajak Elektr Giperkarlari</title>
+  <meta name="description" content="VOLTRON MOTORS - Eng ilg'or, kuchli va hashamatli elektro-avtomobillar brendi. 0-100 km/s 1.9 soniyada, 850 km zaryad zaxirasi, 800V ultra-tezkor quvvatlash.">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><polygon points='50,5 95,85 50,70 5,85' fill='%2300f2fe'/><polygon points='50,15 80,75 50,65 20,75' fill='%237928ca'/></svg>">
+
+  <!-- Google Fonts: Orbitron (futuristic headers) & Rajdhani / Outfit (clean tech body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800;900&family=Outfit:wght@300;400;500;600;700&family=Rajdhani:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="dark-theme">
+
+  <!-- Ambient Cyber Glows -->
+  <div class="ambient-glow glow-top-left"></div>
+  <div class="ambient-glow glow-top-right"></div>
+  <div class="ambient-glow glow-center"></div>
+
+  <!-- Sound Toggle Indicator & Floating HUD -->
+  <div class="floating-audio-control" id="audioControl" title="EV Ovozini yoqish/o'chirish">
+    <button class="sound-toggle-btn" id="soundToggleBtn">
+      <i class="fa-solid fa-volume-xmark" id="soundIcon"></i>
+      <span class="sound-text">EV AUDIO</span>
+    </button>
+  </div>
+
+  <!-- NAVIGATION BAR -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="logo-symbol">
+          <svg viewBox="0 0 40 40" class="logo-svg">
+            <polygon points="20,2 38,34 20,28 2,34" class="logo-outer" />
+            <polygon points="20,7 32,30 20,25 8,30" class="logo-inner" />
+          </svg>
+        </div>
+        <div class="logo-text">
+          <span class="brand-name">VOLTRON</span>
+          <span class="brand-tag">MOTORS</span>
+        </div>
+      </a>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#hero" class="nav-item active">Bosh sahifa</a>
+        <a href="#models" class="nav-item">Modellar</a>
+        <a href="#configurator" class="nav-item">Konfigurator</a>
+        <a href="#tech" class="nav-item">Texnologiya</a>
+        <a href="#range-calc" class="nav-item">Masofa & Quvvat</a>
+        <a href="#gallery" class="nav-item">Galereya</a>
+        <a href="#contact" class="nav-item">Aloqa</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch">
+          <span class="lang-btn active">UZ</span>
+          <span class="lang-btn">EN</span>
+          <span class="lang-btn">RU</span>
+        </div>
+        <button class="btn btn-primary nav-cta open-modal-btn" data-modal="testDriveModal">
+          <i class="fa-solid fa-bolt"></i> Test-Drayv
+        </button>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Menyu ochish">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section" id="hero">
+      <div class="hero-canvas-bg" id="heroCanvasContainer">
+        <!-- Interactive Cyber Grid & Canvas -->
+        <canvas id="cyberCanvas"></canvas>
+      </div>
+
+      <div class="hero-content container">
+        <div class="hero-badge animate-fade">
+          <span class="badge-dot"></span>
+          <span>2026 YANGI AVLOD HYPER EV FLOTI</span>
+        </div>
+
+        <h1 class="hero-title animate-title">
+          KELAJAK TEZLIGI. <br>
+          <span class="text-gradient">CHEKSIZ QUVVAT.</span>
+        </h1>
+
+        <p class="hero-description animate-fade-delay">
+          VOLTRON — aerodinamika, sun'iy intellekt va 800V ultra-quvvat uyg'unlashgan elektrokarlar timsoli. 
+          0 dan 100 km/soatga <strong>1.9 soniyada</strong> erishing.
+        </p>
+
+        <div class="hero-cta-group animate-fade-delay2">
+          <a href="#configurator" class="btn btn-primary btn-glow">
+            <i class="fa-solid fa-sliders"></i> Avtomobilni Yig'ish
+          </a>
+          <button class="btn btn-glass open-modal-btn" data-modal="testDriveModal">
+            <i class="fa-solid fa-gauge-high"></i> Test-Drayvga Yozilish
+          </button>
+          <button class="btn btn-sound-demo" id="heroRevBtn">
+            <i class="fa-solid fa-play"></i> EV Akseleratsiya Ovozini Tinglang
+          </button>
+        </div>
+
+        <!-- Hero Car Showcase -->
+        <div class="hero-car-wrapper animate-car">
+          <div class="car-glow-underlay"></div>
+          <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1600&q=85" 
+               alt="VOLTRON APEX GT Flagship Elektro-avtomobil" 
+               class="hero-car-img" 
+               id="heroCarImg"
+               loading="eager">
+
+          <!-- Hotspots on car -->
+          <div class="hotspot hotspot-1" data-info="Aero-Blade spoyler: 0.198 Cd qarshilik koeffitsienti">
+            <div class="hotspot-pulse"></div>
+            <div class="hotspot-tooltip">Faol Aero Spoyler (0.198 Cd)</div>
+          </div>
+          <div class="hotspot hotspot-2" data-info="800V Silikon-Karbid Dual Motor (1,200 HP)">
+            <div class="hotspot-pulse"></div>
+            <div class="hotspot-tooltip">Quad-Motor AWD (1,200 Ot kuchi)</div>
+          </div>
+          <div class="hotspot hotspot-3" data-info="Solid-State Lityum-Titan Batareya 120 kWh">
+            <div class="hotspot-pulse"></div>
+            <div class="hotspot-tooltip">120 kWh Titan Batareya</div>
+          </div>
+        </div>
+
+        <!-- Telemetry HUD Bar -->
+        <div class="hero-telemetry-hud">
+          <div class="telemetry-card">
+            <div class="telemetry-val"><span class="counter" data-target="1.9">0</span><small>s</small></div>
+            <div class="telemetry-label">0-100 km/soat Tezlanish</div>
+          </div>
+          <div class="telemetry-divider"></div>
+          <div class="telemetry-card">
+            <div class="telemetry-val"><span class="counter" data-target="850">0</span><small>km</small></div>
+            <div class="telemetry-label">Bir Zaryadda Masofa</div>
+          </div>
+          <div class="telemetry-divider"></div>
+          <div class="telemetry-card">
+            <div class="telemetry-val"><span class="counter" data-target="15">0</span><small>daq</small></div>
+            <div class="telemetry-label">10-80% Tez Quvvatlash</div>
+          </div>
+          <div class="telemetry-divider"></div>
+          <div class="telemetry-card">
+            <div class="telemetry-val"><span class="counter" data-target="1200">0</span><small>HP</small></div>
+            <div class="telemetry-label">Maksimal Ot Kuchi</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FLEET / MODELS SECTION -->
+    <section class="section models-section" id="models">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">VOLTRON LINEUP 2026</div>
+          <h2 class="section-title">Eksklyuziv <span class="text-gradient">Model Qatori</span></h2>
+          <p class="section-subtitle">Poyga trassasidan tortib hashamatli shahar yo'llarigacha — mukammallik uchun yaratilgan muhandislik durdonalari.</p>
+        </div>
+
+        <!-- Category Tabs -->
+        <div class="model-filter-tabs">
+          <button class="filter-btn active" data-category="all">Barchasi</button>
+          <button class="filter-btn" data-category="hypercar">Giperkarlar</button>
+          <button class="filter-btn" data-category="suv">Krossover & SUV</button>
+          <button class="filter-btn" data-category="sedan">Biznes Sedan</button>
+        </div>
+
+        <!-- Car Grid -->
+        <div class="car-grid" id="carGrid">
+          
+          <!-- Car 1: Apex GT -->
+          <article class="car-card" data-category="sedan">
+            <div class="card-badge top-pick">ENG TALABGIR</div>
+            <div class="car-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=900&q=80" alt="VOLTRON Apex GT" loading="lazy">
+              <div class="car-card-overlay">
+                <button class="btn-card-quickview" data-car="apex-gt">Tezkor Ko'rish</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-category-tag">Gran Turismo Sedan</div>
+              <h3 class="car-name">VOLTRON APEX GT</h3>
+              <p class="car-short-desc">Aerodinamik mukammallik, sportcha xarakter va hashamatli 4 o'rinli lyuks salon.</p>
+              
+              <div class="car-specs-grid">
+                <div class="spec-item">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span class="spec-number">2.1s</span>
+                  <span class="spec-label">0-100 km/s</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-road"></i>
+                  <span class="spec-number">820 km</span>
+                  <span class="spec-label">Masofa</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-horse-head"></i>
+                  <span class="spec-number">1,020 HP</span>
+                  <span class="spec-label">Quvvat</span>
+                </div>
+              </div>
+
+              <div class="car-card-footer">
+                <div class="car-price">
+                  <span class="price-from">Boshlang'ich narx</span>
+                  <span class="price-val">$89,000</span>
+                </div>
+                <button class="btn btn-primary btn-sm open-config-btn" data-model="apex-gt">
+                  Tanlash <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 2: Cyber-X SUV -->
+          <article class="car-card" data-category="suv">
+            <div class="card-badge">AWD OFF-ROAD</div>
+            <div class="car-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?auto=format&fit=crop&w=900&q=80" alt="VOLTRON Cyber-X" loading="lazy">
+              <div class="car-card-overlay">
+                <button class="btn-card-quickview" data-car="cyber-x">Tezkor Ko'rish</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-category-tag">Ultra-Lyuks SUV</div>
+              <h3 class="car-name">VOLTRON CYBER-X</h3>
+              <p class="car-short-desc">Har qanday qiyin relefni zabt etuvchi pnevmo-podveska va 7 o'rinli futuristik makon.</p>
+              
+              <div class="car-specs-grid">
+                <div class="spec-item">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span class="spec-number">3.2s</span>
+                  <span class="spec-label">0-100 km/s</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-road"></i>
+                  <span class="spec-number">740 km</span>
+                  <span class="spec-label">Masofa</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-horse-head"></i>
+                  <span class="spec-number">780 HP</span>
+                  <span class="spec-label">Quvvat</span>
+                </div>
+              </div>
+
+              <div class="car-card-footer">
+                <div class="car-price">
+                  <span class="price-from">Boshlang'ich narx</span>
+                  <span class="price-val">$96,500</span>
+                </div>
+                <button class="btn btn-primary btn-sm open-config-btn" data-model="cyber-x">
+                  Tanlash <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 3: Phantom Blade Hypercar -->
+          <article class="car-card" data-category="hypercar">
+            <div class="card-badge limited">CHEKLANGAN TIRAJ (100 DONA)</div>
+            <div class="car-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?auto=format&fit=crop&w=900&q=80" alt="VOLTRON Phantom Blade" loading="lazy">
+              <div class="car-card-overlay">
+                <button class="btn-card-quickview" data-car="phantom-blade">Tezkor Ko'rish</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-category-tag">Poyga Giperkari</div>
+              <h3 class="car-name">VOLTRON PHANTOM BLADE</h3>
+              <p class="car-short-desc">Tugallanmagan uglerod tolasidan monokok, Quad-Motor va 415 km/soat maksimal tezlik.</p>
+              
+              <div class="car-specs-grid">
+                <div class="spec-item">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span class="spec-number">1.85s</span>
+                  <span class="spec-label">0-100 km/s</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-road"></i>
+                  <span class="spec-number">650 km</span>
+                  <span class="spec-label">Masofa</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-horse-head"></i>
+                  <span class="spec-number">1,914 HP</span>
+                  <span class="spec-label">Quvvat</span>
+                </div>
+              </div>
+
+              <div class="car-card-footer">
+                <div class="car-price">
+                  <span class="price-from">Boshlang'ich narx</span>
+                  <span class="price-val">$240,000</span>
+                </div>
+                <button class="btn btn-primary btn-sm open-config-btn" data-model="phantom-blade">
+                  Tanlash <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+          <!-- Car 4: Lumina Executive -->
+          <article class="car-card" data-category="sedan">
+            <div class="card-badge">PREMIUM BIZNES</div>
+            <div class="car-card-img-wrap">
+              <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=900&q=80" alt="VOLTRON Lumina Executive" loading="lazy">
+              <div class="car-card-overlay">
+                <button class="btn-card-quickview" data-car="lumina">Tezkor Ko'rish</button>
+              </div>
+            </div>
+            <div class="car-card-body">
+              <div class="car-category-tag">Biznes Klass Limuzin</div>
+              <h3 class="car-name">VOLTRON LUMINA SEDAN</h3>
+              <p class="car-short-desc">Shovqinsiz kabina, orqa o'rindiqlarda massaj va avtopilot rejimidagi mutlaq qulaylik.</p>
+              
+              <div class="car-specs-grid">
+                <div class="spec-item">
+                  <i class="fa-solid fa-stopwatch"></i>
+                  <span class="spec-number">3.6s</span>
+                  <span class="spec-label">0-100 km/s</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-road"></i>
+                  <span class="spec-number">910 km</span>
+                  <span class="spec-label">Masofa</span>
+                </div>
+                <div class="spec-item">
+                  <i class="fa-solid fa-horse-head"></i>
+                  <span class="spec-number">650 HP</span>
+                  <span class="spec-label">Quvvat</span>
+                </div>
+              </div>
+
+              <div class="car-card-footer">
+                <div class="car-price">
+                  <span class="price-from">Boshlang'ich narx</span>
+                  <span class="price-val">$74,000</span>
+                </div>
+                <button class="btn btn-primary btn-sm open-config-btn" data-model="lumina">
+                  Tanlash <i class="fa-solid fa-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE 360 & COLOR CONFIGURATOR STUDIO -->
+    <section class="section configurator-section" id="configurator">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">INTERAKTIV STUDIYA</div>
+          <h2 class="section-title">O'z <span class="text-gradient">VOLTRON</span> Avtomobilingizni Yarating</h2>
+          <p class="section-subtitle">Ranglar, disklar va ichki bezaklarni o'zingiz tanlang hamda avtomobilning jonli ko'rinishini his qiling.</p>
+        </div>
+
+        <div class="studio-card">
+          <!-- View Switcher Tabs -->
+          <div class="studio-view-tabs">
+            <button class="view-tab active" data-view="exterior"><i class="fa-solid fa-car-side"></i> Eksteryer</button>
+            <button class="view-tab" data-view="interior"><i class="fa-solid fa-couch"></i> Salon & Interyer</button>
+            <button class="view-tab" data-view="cockpit"><i class="fa-solid fa-gamepad"></i> Raqamli Kokpit</button>
+          </div>
+
+          <div class="studio-stage">
+            <div class="studio-car-display">
+              <div class="studio-light-reflection" id="studioLight"></div>
+              <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1500&q=85" 
+                   alt="Voltron Studio View" 
+                   class="studio-image active" 
+                   id="studioImage">
+              <div class="studio-color-glow" id="studioColorGlow"></div>
+            </div>
+
+            <!-- Floating Studio Specs Summary -->
+            <div class="studio-specs-summary">
+              <div class="studio-spec">
+                <span class="label">Tanlangan Model:</span>
+                <span class="val" id="summaryModel">VOLTRON APEX GT</span>
+              </div>
+              <div class="studio-spec">
+                <span class="label">Rangi:</span>
+                <span class="val" id="summaryColor">Neon Cyber Blue</span>
+              </div>
+              <div class="studio-spec">
+                <span class="label">Disklar:</span>
+                <span class="val" id="summaryWheels">21" AeroForged Titanium</span>
+              </div>
+              <div class="studio-spec total-price">
+                <span class="label">Umumiy Qiymati:</span>
+                <span class="val text-gradient" id="summaryPrice">$89,000</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Studio Customization Controls -->
+          <div class="studio-controls">
+            <!-- Step 1: Model Choice -->
+            <div class="control-group">
+              <h4 class="control-title"><i class="fa-solid fa-car"></i> 1. Modelni Tanlang</h4>
+              <div class="model-select-chips">
+                <button class="model-chip active" data-name="VOLTRON APEX GT" data-base="89000">Apex GT</button>
+                <button class="model-chip" data-name="VOLTRON CYBER-X" data-base="96500">Cyber-X</button>
+                <button class="model-chip" data-name="VOLTRON PHANTOM BLADE" data-base="240000">Phantom Blade</button>
+                <button class="model-chip" data-name="VOLTRON LUMINA SEDAN" data-base="74000">Lumina Sedan</button>
+              </div>
+            </div>
+
+            <!-- Step 2: Body Color -->
+            <div class="control-group" id="colorControls">
+              <h4 class="control-title"><i class="fa-solid fa-palette"></i> 2. Kuzov Rangi</h4>
+              <div class="color-palette">
+                <button class="color-circle active" data-color-name="Neon Cyber Blue" data-color="#00f2fe" data-glow="rgba(0,242,254,0.4)" style="background: linear-gradient(135deg, #00f2fe, #4facfe);" title="Neon Cyber Blue"></button>
+                <button class="color-circle" data-color-name="Stealth Matte Black" data-color="#121214" data-glow="rgba(100,100,120,0.3)" style="background: linear-gradient(135deg, #2b2b36, #0e0e11);" title="Stealth Matte Black"></button>
+                <button class="color-circle" data-color-name="Crimson Fury Red" data-color="#ff0055" data-glow="rgba(255,0,85,0.4)" style="background: linear-gradient(135deg, #ff0844, #ffb199);" title="Crimson Fury"></button>
+                <button class="color-circle" data-color-name="Glacier Hyper Silver" data-color="#e0e8f5" data-glow="rgba(224,232,245,0.5)" style="background: linear-gradient(135deg, #ffffff, #8ba3c7);" title="Glacier Hyper Silver"></button>
+                <button class="color-circle" data-color-name="Emerald Aurora Green" data-color="#00f2a9" data-glow="rgba(0,242,169,0.4)" style="background: linear-gradient(135deg, #0ba360, #3cba92);" title="Emerald Aurora"></button>
+              </div>
+            </div>
+
+            <!-- Step 3: Wheel Options -->
+            <div class="control-group">
+              <h4 class="control-title"><i class="fa-solid fa-circle-notch"></i> 3. G'ildirak Disklar</h4>
+              <div class="wheel-options">
+                <button class="wheel-option-btn active" data-wheels="21\" AeroForged Titanium" data-add="0">
+                  <span class="w-name">21" AeroForged</span>
+                  <span class="w-cost">Standart (+$0)</span>
+                </button>
+                <button class="wheel-option-btn" data-wheels="22\" Carbon Vane Turbine" data-add="3500">
+                  <span class="w-name">22" Carbon Vane</span>
+                  <span class="w-cost">+$3,500</span>
+                </button>
+                <button class="wheel-option-btn" data-wheels="22\" Stealth Matte Blades" data-add="4800">
+                  <span class="w-name">22" Stealth Blades</span>
+                  <span class="w-cost">+$4,800</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Action: Order / Book -->
+            <div class="control-group studio-action-box">
+              <button class="btn btn-primary btn-block open-modal-btn" data-modal="testDriveModal">
+                <i class="fa-solid fa-file-signature"></i> Ushbu Konfiguratsiyaga Buyurtma Berish
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TECHNOLOGY & INNOVATION -->
+    <section class="section tech-section" id="tech">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">KELAJAK INJINERINGI</div>
+          <h2 class="section-title">Evolyutsiyadan <span class="text-gradient">Inqilob Sari</span></h2>
+          <p class="section-subtitle">Oddiy elektrokarlar o'tmishda qoldi. VOLTRON — toza fizika, sun'iy intellekt va kvant darajasidagi samaradorlik.</p>
+        </div>
+
+        <div class="tech-grid">
+          <!-- Tech 1 -->
+          <div class="tech-card">
+            <div class="tech-icon-wrap">
+              <i class="fa-solid fa-bolt-lightning"></i>
+            </div>
+            <h3 class="tech-title">800V Ultra-Tezkor Quvvatlash</h3>
+            <p class="tech-desc">Silikon-karbid (SiC) invertorlari yordamida batareya 350 kVt quvvatda zaryadlanadi. Atigi 15 daqiqa ichida 450 km qo'shimcha masofa.</p>
+            <div class="tech-stat">
+              <span class="stat-highlight">15 daqiqa</span>
+              <span class="stat-sub">10% dan 80% gacha</span>
+            </div>
+          </div>
+
+          <!-- Tech 2 -->
+          <div class="tech-card">
+            <div class="tech-icon-wrap">
+              <i class="fa-solid fa-brain"></i>
+            </div>
+            <h3 class="tech-title">Voltron Copilot 4.0 AI</h3>
+            <p class="tech-desc">8 ta yuqori aniqlikdagi LiDAR, 12 ta ultratovush datchigi va neyron protsessor soniyasiga 500 trillion operatsiya bajarib, to'liq xavfsiz avtonom harakatlanadi.</p>
+            <div class="tech-stat">
+              <span class="stat-highlight">360° LiDAR</span>
+              <span class="stat-sub">500 TOPS Neyron Chip</span>
+            </div>
+          </div>
+
+          <!-- Tech 3 -->
+          <div class="tech-card">
+            <div class="tech-icon-wrap">
+              <i class="fa-solid fa-shield-halved"></i>
+            </div>
+            <h3 class="tech-title">Solid-State Titan Batareya</h3>
+            <p class="tech-desc">Suyuq elektrolitsiz, qizib ketmaydigan va yong'inga mutlaqo chidamli yangi avlod xujayralari. 1,000,000 km yoki 10 yil kafolatlangan xizmat muddati.</p>
+            <div class="tech-stat">
+              <span class="stat-highlight">1 000 000 km</span>
+              <span class="stat-sub">Rasmiy Zavod Kafolati</span>
+            </div>
+          </div>
+
+          <!-- Tech 4 -->
+          <div class="tech-card">
+            <div class="tech-icon-wrap">
+              <i class="fa-solid fa-wind"></i>
+            </div>
+            <h3 class="tech-title">Faol Giper-Aerodinamika</h3>
+            <p class="tech-desc">Havo oqimini yo'naltiruvchi dinamik panjur va orqa spoyler tezlikka qarab o'z burchagini o'zgartiradi. Havoga qarshilik koeffitsienti atigi 0.198 Cd.</p>
+            <div class="tech-stat">
+              <span class="stat-highlight">0.198 Cd</span>
+              <span class="stat-sub">Dunyodagi Eng Past Qarshilik</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Architecture Banner -->
+        <div class="tech-architecture-banner">
+          <div class="arch-content">
+            <span class="arch-badge">PLATFORMA: VOLTRON MATRIX 3.0</span>
+            <h3>Skatebord Shassi & Uglerod Monokok</h3>
+            <p>Og'irlik markazi yerga maksimal darajada yaqinlashtirilgan. Bu esa poyga trassasida har qanday burilishni relsda yurgandek barqaror bosib o'tish imkonini beradi.</p>
+            <div class="arch-tags">
+              <span>50:50 Og'irlik Taqsimoti</span>
+              <span>Ultra-Mustahkam Karbon</span>
+              <span>Torque Vectoring AWD</span>
+            </div>
+          </div>
+          <div class="arch-image">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1000&q=80" alt="Batareya shassi arxitekturasi" loading="lazy">
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- LIVE RANGE & CHARGING SIMULATOR -->
+    <section class="section range-calc-section" id="range-calc">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">HISOBLAGICH & SIMULYATOR</div>
+          <h2 class="section-title">Haqiqiy Yo'l <span class="text-gradient">Masofasi Simulyatori</span></h2>
+          <p class="section-subtitle">Ob-havo, harakatlanish tezligi va iqlim nazoratining avtomobil yurish zaxirasiga ta'sirini jonli hisoblang.</p>
+        </div>
+
+        <div class="simulator-wrapper">
+          <!-- Controls Column -->
+          <div class="sim-controls-col">
+            <!-- Speed Slider -->
+            <div class="sim-slider-group">
+              <div class="slider-header">
+                <label for="speedSlider"><i class="fa-solid fa-gauge"></i> Harakat Tezligi</label>
+                <span class="slider-val-badge" id="speedValue">90 km/soat</span>
+              </div>
+              <input type="range" id="speedSlider" min="50" max="150" step="5" value="90">
+              <div class="slider-ticks">
+                <span>50 km/s</span>
+                <span>100 km/s</span>
+                <span>150 km/s</span>
+              </div>
+            </div>
+
+            <!-- Temperature Slider -->
+            <div class="sim-slider-group">
+              <div class="slider-header">
+                <label for="tempSlider"><i class="fa-solid fa-temperature-half"></i> Tashqi Havo Harorati</label>
+                <span class="slider-val-badge" id="tempValue">+22°C</span>
+              </div>
+              <input type="range" id="tempSlider" min="-20" max="45" step="1" value="22">
+              <div class="slider-ticks">
+                <span>-20°C Qish</span>
+                <span>+22°C Bahor</span>
+                <span>+45°C Yoz</span>
+              </div>
+            </div>
+
+            <!-- Toggles & Mode Selection -->
+            <div class="sim-toggles-row">
+              <div class="toggle-card">
+                <span class="toggle-label"><i class="fa-solid fa-snowflake"></i> Konditsioner / AC</span>
+                <label class="switch">
+                  <input type="checkbox" id="acToggle" checked>
+                  <span class="slider round"></span>
+                </label>
+              </div>
+
+              <div class="toggle-card">
+                <span class="toggle-label"><i class="fa-solid fa-fire"></i> Beast Giper-Rejim</span>
+                <label class="switch">
+                  <input type="checkbox" id="beastToggle">
+                  <span class="slider round"></span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Rim Size Picker -->
+            <div class="sim-wheels-select">
+              <span class="select-label"><i class="fa-solid fa-compact-disc"></i> G'ildirak O'lchami:</span>
+              <div class="wheel-chips">
+                <button class="wchip active" data-inch="20">20" Aero</button>
+                <button class="wchip" data-inch="21">21" Sport</button>
+                <button class="wchip" data-inch="22">22" Track</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Output Display Column -->
+          <div class="sim-display-col">
+            <div class="sim-result-card">
+              <div class="sim-circle-gauge">
+                <svg viewBox="0 0 200 200" class="gauge-svg">
+                  <circle cx="100" cy="100" r="85" class="gauge-track"></circle>
+                  <circle cx="100" cy="100" r="85" class="gauge-fill" id="gaugeBar"></circle>
+                </svg>
+                <div class="gauge-data">
+                  <span class="gauge-number" id="calcRangeVal">820</span>
+                  <span class="gauge-unit">KM</span>
+                  <span class="gauge-desc">Prognoz Masofa</span>
+                </div>
+              </div>
+
+              <div class="sim-metrics-grid">
+                <div class="metric-box">
+                  <span class="metric-title"><i class="fa-solid fa-bolt"></i> Sarfiyot</span>
+                  <span class="metric-val" id="calcConsumption">14.6 kWh/100km</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-title"><i class="fa-solid fa-clock"></i> Zaryad Vaqti (Supercharger)</span>
+                  <span class="metric-val" id="calcChargeTime">16 daqiqa</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-title"><i class="fa-solid fa-house"></i> Uyda Zaryad (11 kW)</span>
+                  <span class="metric-val">6.5 soat (0-100%)</span>
+                </div>
+                <div class="metric-box">
+                  <span class="metric-title"><i class="fa-solid fa-leaf"></i> CO2 Tejamkorligi</span>
+                  <span class="metric-val text-success">100% Toza Ekologiya</span>
+                </div>
+              </div>
+
+              <div class="sim-tip">
+                <i class="fa-solid fa-circle-info"></i> Masofa hisoblash real aerodinamik va batareya termal boshqaruvi algoritmlari asosida shakllantirildi.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="section gallery-section" id="gallery">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">FOTOGALEREYA</div>
+          <h2 class="section-title">Ko'rgazmali <span class="text-gradient">Elegans</span></h2>
+          <p class="section-subtitle">Har bir chiziq, har bir detaldagi estetik mukammallik. Biznes, poyga va shahar muhitidagi lahzalar.</p>
+        </div>
+
+        <div class="gallery-filter-bar">
+          <button class="g-btn active" data-filter="all">Barchasi</button>
+          <button class="g-btn" data-filter="exterior">Eksteryer</button>
+          <button class="g-btn" data-filter="interior">Interyer</button>
+          <button class="g-btn" data-filter="charging">Zaryadlash</button>
+        </div>
+
+        <div class="gallery-masonry" id="galleryGrid">
+          <div class="gallery-item large" data-tag="exterior">
+            <img src="https://images.unsplash.com/photo-1617788138017-80ad40651399?auto=format&fit=crop&w=1200&q=80" alt="Voltron Exterior Dark" loading="lazy">
+            <div class="gallery-hover-info">
+              <h4>Aero-Dynamic Silhouette</h4>
+              <p>Maftunkor chiroqlar va qat'iy aerodinamik profillar.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-tag="interior">
+            <img src="https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80" alt="Voltron Cockpit Luxury" loading="lazy">
+            <div class="gallery-hover-info">
+              <h4>Panorama Lyuks Salon</h4>
+              <p>Alcantara va qayta ishlangan ekologik charm qoplamasi.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-tag="charging">
+            <img src="https://images.unsplash.com/photo-1593941707882-a5bba14938c7?auto=format&fit=crop&w=800&q=80" alt="Voltron Supercharging Station" loading="lazy">
+            <div class="gallery-hover-info">
+              <h4>Voltron HyperCharger 350kW</h4>
+              <p>Shahar markazlari va trassalarda tezyurar stansiyalar tarmog'i.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item" data-tag="interior">
+            <img src="https://images.unsplash.com/photo-1583121274602-3e2820c69888?auto=format&fit=crop&w=800&q=80" alt="Voltron Steering Cockpit" loading="lazy">
+            <div class="gallery-hover-info">
+              <h4>Minimalist Rul & Head-Up Display</h4>
+              <p>Haqiqiy poygachi uslubidagi ergonomika.</p>
+            </div>
+          </div>
+
+          <div class="gallery-item wide" data-tag="exterior">
+            <img src="https://images.unsplash.com/photo-1563720223185-11003d516935?auto=format&fit=crop&w=1200&q=80" alt="Voltron Night Track" loading="lazy">
+            <div class="gallery-hover-info">
+              <h4>Tungi Shahar Poygasi</h4>
+              <p>Ko'zlarni qamashtiruvchi LED matritsa va lazer nurlari.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS & AWARDS -->
+    <section class="section awards-section">
+      <div class="container">
+        <div class="awards-badge-row">
+          <div class="award-pill">
+            <i class="fa-solid fa-trophy"></i>
+            <div>
+              <strong>Global EV of the Year 2026</strong>
+              <span>World Car Awards</span>
+            </div>
+          </div>
+          <div class="award-pill">
+            <i class="fa-solid fa-award"></i>
+            <div>
+              <strong>Best Aerodynamic Design</strong>
+              <span>Red Dot: Best of Best</span>
+            </div>
+          </div>
+          <div class="award-pill">
+            <i class="fa-solid fa-shield-virus"></i>
+            <div>
+              <strong>5-Star Safety Rating</strong>
+              <span>Euro NCAP 2026 Platinum</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Reviews Carousel / Cards -->
+        <div class="reviews-grid">
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Apex GT ni olganimga 3 oy bo'ldi. 0 dan 100 gacha 2 soniyada chiqishini his qilish go'yo kosmik kemada uchgandek tuyuladi. Salondagi akustika va shovqinsizlik hayratlanarli darajada!"</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">AZ</div>
+              <div>
+                <h5>Akmal Zokirov</h5>
+                <span>Toshkent, Tadbirkor (Apex GT egasi)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Cyber-X oilaviy sayohatlarimiz uchun eng ideal avtomobil bo'ldi. Toshkentdan Samarqandga bitta zaryad bilan bemalol yetib bordik va batareyada yana 40% quvvat qoldi."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">SK</div>
+              <div>
+                <h5>Sardor Karimiy</h5>
+                <span>IT Kompaniya Direktori (Cyber-X egasi)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="review-card">
+            <div class="review-stars">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="review-text">"Avtopilot 4.0 tirbandlikda butunlay stressni yo'qotadi. Rasmiy servis xizmati va avtomobilni xavfsizlik yangilanishlari to'g'ridan-to'g'ri internet orqali kelishi qulay."</p>
+            <div class="reviewer-info">
+              <div class="reviewer-avatar">DN</div>
+              <div>
+                <h5>Dilnoza Nazirova</h5>
+                <span>Arxitektor & Dizayner (Lumina egasi)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FAQ ACCORDION -->
+    <section class="section faq-section" id="faq">
+      <div class="container">
+        <div class="section-header">
+          <div class="section-badge">SAVOLLAR & JAVOBLAR</div>
+          <h2 class="section-title">Ko'p Beriladigan <span class="text-gradient">Savollar</span></h2>
+          <p class="section-subtitle">VOLTRON elektrokarlari va O'zbekiston bo'ylab xizmat ko'rsatish haqida batafsil ma'lumot.</p>
+        </div>
+
+        <div class="faq-accordion" id="faqAccordion">
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>VOLTRON avtomobillariga qanday kafolat beriladi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Barcha VOLTRON modellariga 8 yil yoki 200,000 km umumiy avtomobil kafolati, hamda Solid-State titan batareya blokiga 1,000,000 km rasmiy zavod kafolati taqdim etiladi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>O'zbekistonda quvvatlash tarmog'i qanday tashkil etilgan?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Har bir avtomobil xaridida bepul 11 kVt quvvatli uy quvvatlagichi (Wallbox) sovg'a qilinadi va mutaxassislarimiz tomonidan xonadoningizga o'rnatib beriladi. Shuningdek, respublikamizning barcha yirik magistral yo'llari bo'ylab 350 kVtli VOLTRON Supercharger tarmog'i 24/7 rejimida ishlamoqda.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Test-drayv uchun to'lov bormi va unga qanday yozilish mumkin?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>Test-drayv mutlaqo bepul! Saytimizdagi istalgan "Test-Drayv" tugmasini bosib o'zingizga qulay vaqt va Toshkent City Showroom yoki boshqa filialimizni tanlashingiz kifoya. Mutaxassislarimiz 15 daqiqada siz bilan bog'lanishadi.</p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question">
+              <span>Dasturiy ta'minot yangilanishlari qanday o'rnatiladi?</span>
+              <i class="fa-solid fa-chevron-down"></i>
+            </button>
+            <div class="faq-answer">
+              <p>VOLTRON avtomobillari xuddi zamonaviy smartfonlar kabi OTA (Over-the-Air) simsiz internet tarmog'i orqali avtomatik yangilanadi. Avtopilot yaxshilanishi, yangi o'yinlar va qulaylik funksiyalari tungi vaqtda o'z-o'zidan yuklanadi.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / SHOWROOM / BOOKING SECTION -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="contact-card-box">
+          <div class="contact-info-col">
+            <span class="section-badge">RASMIY SHOWROOM</span>
+            <h2 class="contact-headline">Kelajakni Bugun <span class="text-gradient">O'z Ko'zingiz Bilan Ko'ring</span></h2>
+            <p class="contact-p">
+              Toshkent markazidagi flagman showroomimizga tashrif buyuring va giperkarlarni haqiqiy hayotda sinab ko'ring.
+            </p>
+
+            <div class="contact-details">
+              <div class="c-detail-item">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Bosh Ofis & Showroom:</strong>
+                  <span>Toshkent shahri, Shayxontohur tumani, Tashkent City, Bulvar 4</span>
+                </div>
+              </div>
+
+              <div class="c-detail-item">
+                <i class="fa-solid fa-phone"></i>
+                <div>
+                  <strong>Yagona Aloqa Markazi:</strong>
+                  <span>+998 (71) 200-88-88 | 24/7 Call Center</span>
+                </div>
+              </div>
+
+              <div class="c-detail-item">
+                <i class="fa-solid fa-envelope"></i>
+                <div>
+                  <strong>Elektron Pochta:</strong>
+                  <span>concierge@voltronmotors.uz</span>
+                </div>
+              </div>
+
+              <div class="c-detail-item">
+                <i class="fa-solid fa-clock"></i>
+                <div>
+                  <strong>Ish Tartibi:</strong>
+                  <span>Har kuni 09:00 dan 21:00 gacha dam olishsiz</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Consultation Form -->
+          <div class="contact-form-col">
+            <form class="contact-form" id="quickConsultForm">
+              <h3 class="form-title">Konsultatsiya Olish</h3>
+              <p class="form-sub">Mutaxassisimiz sizga 10 daqiqa ichida qo'ng'iroq qiladi.</p>
+
+              <div class="form-group">
+                <label for="cName">Ismingiz *</label>
+                <input type="text" id="cName" required placeholder="Masalan: Jamshid Aliyev">
+              </div>
+
+              <div class="form-group">
+                <label for="cPhone">Telefon Raqamingiz *</label>
+                <input type="tel" id="cPhone" required placeholder="+998 (90) 123-45-67">
+              </div>
+
+              <div class="form-group">
+                <label for="cModel">Qiziqtirgan Model</label>
+                <select id="cModel">
+                  <option value="apex-gt">VOLTRON APEX GT ($89,000)</option>
+                  <option value="cyber-x">VOLTRON CYBER-X ($96,500)</option>
+                  <option value="phantom-blade">VOLTRON PHANTOM BLADE ($240,000)</option>
+                  <option value="lumina">VOLTRON LUMINA SEDAN ($74,000)</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block btn-glow">
+                <i class="fa-solid fa-paper-plane"></i> So'rov Yuborish
+              </button>
+              <div class="form-status" id="quickFormStatus"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- TEST DRIVE MODAL POPUP -->
+  <div class="modal-overlay" id="testDriveModal">
+    <div class="modal-window">
+      <button class="modal-close-btn" id="closeModalBtn" aria-label="Yopish">&times;</button>
+      
+      <div class="modal-header">
+        <div class="modal-badge"><i class="fa-solid fa-bolt"></i> EKSKLYUZIV SINOV</div>
+        <h3 class="modal-title">Eksklyuziv <span class="text-gradient">Test-Drayvga</span> Yozilish</h3>
+        <p class="modal-subtitle">Haqiqiy tezlanish va kelajak boshqaruvini trassada his eting. Xizmat mutlaqo bepul.</p>
+      </div>
+
+      <form class="modal-form" id="testDriveForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tdName">To'liq Ismingiz *</label>
+            <input type="text" id="tdName" required placeholder="Jasur Rahmatov">
+          </div>
+          <div class="form-group">
+            <label for="tdPhone">Telefon Raqamingiz *</label>
+            <input type="tel" id="tdPhone" required placeholder="+998 (99) 999-99-99">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tdModel">Sinov uchun Model *</label>
+            <select id="tdModel" required>
+              <option value="apex-gt">VOLTRON APEX GT (1,020 HP)</option>
+              <option value="cyber-x">VOLTRON CYBER-X (SUV 780 HP)</option>
+              <option value="phantom-blade">VOLTRON PHANTOM BLADE (1,914 HP)</option>
+              <option value="lumina">VOLTRON LUMINA SEDAN (650 HP)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="tdLocation">Showroom Hududi *</label>
+            <select id="tdLocation" required>
+              <option value="tashkent-city">Toshkent City Flagman Showroom</option>
+              <option value="samarkand">Samarqand Silk Road Filiali</option>
+              <option value="bukhara">Buxoro Auto Hub</option>
+              <option value="fergana">Farg'ona Valley Markazi</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tdDate">Qulay Sana *</label>
+            <input type="date" id="tdDate" required>
+          </div>
+          <div class="form-group">
+            <label for="tdTime">Qulay Vaqt *</label>
+            <select id="tdTime" required>
+              <option value="10:00">10:00 - 11:30 (Ertalab)</option>
+              <option value="13:00">13:00 - 14:30 (Tushlik)</option>
+              <option value="16:00">16:00 - 17:30 (Kunduzi)</option>
+              <option value="19:00">19:00 - 20:30 (Oqshom / Night Drive)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-checkbox">
+          <input type="checkbox" id="tdLicense" required>
+          <label for="tdLicense">Men amaldagi B-toifali haydovchilik guvohnomasiga egaman (kamida 1 yil staj).</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block btn-glow modal-submit-btn">
+          <i class="fa-solid fa-flag-checkered"></i> Test-Drayvni Tasdiqlash
+        </button>
+
+        <div class="modal-status-msg" id="modalStatusMsg"></div>
+      </form>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION CONTAINER -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo">
+          <div class="logo-symbol">
+            <svg viewBox="0 0 40 40" class="logo-svg">
+              <polygon points="20,2 38,34 20,28 2,34" class="logo-outer" />
+              <polygon points="20,7 32,30 20,25 8,30" class="logo-inner" />
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="brand-name">VOLTRON</span>
+            <span class="brand-tag">MOTORS</span>
+          </div>
+        </a>
+        <p class="footer-mission">
+          Kelajak avtomobil sanoati bugun shu yerda boshlanadi. Nol emissiya, mutlaq xavfsizlik va hayajonli tezlik uyg'unligi.
+        </p>
+        <div class="footer-socials">
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" aria-label="Telegram"><i class="fa-brands fa-telegram"></i></a>
+          <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Modellar</h4>
+        <ul>
+          <li><a href="#models">VOLTRON Apex GT</a></li>
+          <li><a href="#models">VOLTRON Cyber-X SUV</a></li>
+          <li><a href="#models">VOLTRON Phantom Blade</a></li>
+          <li><a href="#models">VOLTRON Lumina Sedan</a></li>
+          <li><a href="#configurator">Onlayn Konfigurator</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Texnologiyalar</h4>
+        <ul>
+          <li><a href="#tech">800V SiC Platforma</a></li>
+          <li><a href="#tech">Solid-State Batareya</a></li>
+          <li><a href="#tech">Voltron Copilot 4.0 AI</a></li>
+          <li><a href="#range-calc">Supercharger Tarmog'i</a></li>
+          <li><a href="#faq">Kafolat & Servis</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Aloqa & Filiallar</h4>
+        <ul>
+          <li><a href="#contact">Tashkent City Showroom</a></li>
+          <li><a href="#contact">Samarqand Markazi</a></li>
+          <li><a href="#contact">Buxoro Auto Hub</a></li>
+          <li><a href="#contact">Farg'ona Filiali</a></li>
+          <li><a href="tel:+998712008888">+998 (71) 200-88-88</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <p>&copy; 2026 VOLTRON MOTORS LLC. Barcha huquqlar himoyalangan.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Maxfiylik Siyosati</a>
+          <a href="#">Foydalanish Shartlari</a>
+          <a href="#">Xavfsizlik Sertifikatlari</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main JavaScript File -->
+  <script src="script.js"></script>
+</body>
+</html>
